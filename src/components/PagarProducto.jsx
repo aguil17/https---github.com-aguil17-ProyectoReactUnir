@@ -13,6 +13,7 @@ export const PagarProducto = ({productEncontrado}) =>
                 <div className="col-md-4">
                     <h3 className="pagarProducto_titulo">{productEncontrado.titulo}</h3>
                     <p >{productEncontrado.nroVendidos} vendidos</p>
+                    <p >{productEncontrado.cantidad} unidades</p>
                     <p className="pagarProducto__precio" >Precio: {productEncontrado.moneda} {productEncontrado.precio}</p>
                 </div>
                 <div className="col-md-4">

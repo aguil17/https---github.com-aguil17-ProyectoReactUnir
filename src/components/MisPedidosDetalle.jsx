@@ -29,7 +29,7 @@ export const MisPedidosDetalle = ({cliente}) =>
         const pedidos = [
             {
                 fecha: "01 de Enero 2024",
-                moneda: "DOL",
+                moneda: "$.",
                 total: 1000.50,
                 destinatario: "Juan Aguilar Abanto",
                 nroPedido: "0001-2024",
@@ -39,7 +39,7 @@ export const MisPedidosDetalle = ({cliente}) =>
                         titulo: "Cámara IP 2K con WIFI 2,4G",
                         descripcion: "Cámara de vigilancia Solar LS VISION 2K 4G/WiFi, batería integrada de 10400mAh, 4MP de cámara PTZ, habla bidireccional, cámara de seguridad inalámbrica para exteriores",
                         imagen: camara01_normal,
-                        moneda: "DOL",
+                        moneda: "$.",
                         precio: 1000.50,
                         vendedor: "Juan Aguilar Abanto"
                     }

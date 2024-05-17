@@ -821,6 +821,14 @@ table
     text-align: left;
 }
 
+.misPedidosDetalleProducto__monto
+{
+    color: darkred;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+
 .misPedidosRow_productos
 {
      margin-top: 20px;

@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 
 export const MisPedidosDetalleProducto = ({productImage}) =>
 {
-
     const navigate = useNavigate();
 
     
@@ -21,8 +20,8 @@ export const MisPedidosDetalleProducto = ({productImage}) =>
                 <div className="col-md-9">
                     <h3 className="misPedidosDetalleProducto__title">{productImage.titulo}</h3>
                     <p >{productImage.descripcion}</p>
-                    <p >vendedor: {productImage.vendedor}</p>
-                    <p>Monto: {productImage.moneda} {productImage.precio}</p>
+                    <p >Vendedor: {productImage.vendedor}</p>
+                    <p className="misPedidosDetalleProducto__monto">Monto: {productImage.moneda} {productImage.precio}</p>
                     <div><button className="btn btn-success" type="button" onClick={redirectToDevolucion}>Devolver Producto</button></div>
                 </div>
 

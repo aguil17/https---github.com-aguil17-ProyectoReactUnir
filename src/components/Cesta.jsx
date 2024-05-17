@@ -13,6 +13,7 @@ export const Cesta = () => {
             descripcion: "Xiaomi-cámara IP 2K 1296P 180 °, Monitor de seguridad para bebés, Webcam, visión nocturna, vídeo AI, detección humana, vigilancia Mi Smart Home",
             faltantes: 10,
             moneda: "$",
+            nroVendidos: 1000,
             precio: 100,
             cantidad: 1,
             seleccionado: false
@@ -24,6 +25,7 @@ export const Cesta = () => {
             faltantes: 10,
             moneda: "$",
             precio: 50,
+            nroVendidos: 349,
             cantidad: 1,
             seleccionado: false
         },
@@ -32,6 +34,7 @@ export const Cesta = () => {
             titulo: "Cámara inteligente de seguridad",
             descripcion: "Xiaomi-cámara IP 2K 1296P 180 °, Monitor de seguridad para bebés, Webcam, visión nocturna, vídeo AI, detección humana, vigilancia Mi Smart Home",
             faltantes: 10,
+            nroVendidos: 108,
             moneda: "$",
             precio: 40,
             cantidad: 1,
@@ -41,37 +44,41 @@ export const Cesta = () => {
 
     const [totalSeleccionado, setTotalSeleccionado] = useState(0);
 
-    const handleToggleProduct = (product, isSelected) => {
-        const updatedProducts = products.map(p => {
+    const ManejarCambioProduct = (product, isSelected) => {
+        const actualizarProducts = products.map(p => {
             if (p === product) {
                 return { ...p, seleccionado: isSelected };
             }
             return p;
         });
-        setProducts(updatedProducts);
-        updateTotal(updatedProducts);
+        setProducts(actualizarProducts);
+        ActualizarTotal(actualizarProducts);
     };
 
-    const handleUpdateQuantity = (product, newQuantity) => {
-        const updatedProducts = products.map(p => {
+    const manejarCambioCantidad = (product, newQuantity) => {
+        const actualizarProducts = products.map(p => {
             if (p === product) {
                 return { ...p, cantidad: newQuantity };
             }
             return p;
         });
-        setProducts(updatedProducts);
-        updateTotal(updatedProducts);
+        setProducts(actualizarProducts);
+        ActualizarTotal(actualizarProducts);
     };
 
-    const updateTotal = (updatedProducts) => {
-        const newTotalSeleccionado = updatedProducts.reduce((total, p) => {
+    const ActualizarTotal = (productosActualizados) => {
+        const nuevoTotalSeleccionado = productosActualizados.reduce((total, p) => {
             if (p.seleccionado) {
                 return total + (p.precio * p.cantidad);
             }
             return total;
         }, 0);
-        setTotalSeleccionado(newTotalSeleccionado);
+        setTotalSeleccionado(nuevoTotalSeleccionado);
     };
+
+    const productosSeleccionados = products.filter(x => x.seleccionado);
+
+    localStorage.setItem("PagarProductos",JSON.stringify(productosSeleccionados))
 
 
     return ( 
@@ -82,8 +89,8 @@ export const Cesta = () => {
                     <CestaDetail 
                         key={index}
                         productImage={product}
-                        onToggle={handleToggleProduct}
-                        onUpdateQuantity={handleUpdateQuantity}
+                        onToggle={ManejarCambioProduct}
+                        onUpdateQuantity={manejarCambioCantidad}
                     />
                 ))}
             </div>

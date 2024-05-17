@@ -13,6 +13,24 @@ export const Pagar = () =>
       setSelectedOption(eventKey);
     };
 
+    const detallePagoProductos = localStorage.getItem("PagarProductos");
+
+    console.log(detallePagoProductos);
+
+    const productos = JSON.parse(detallePagoProductos);
+
+    const calcularTotal = productos.reduce((total, p) => {
+        if (p.seleccionado) {
+            return total + (p.precio * p.cantidad);
+        }
+        return total;
+    }, 0);
+
+    const costoEnvio = 10.00
+
+    const totalOperacion = calcularTotal + costoEnvio;
+
+
     const [esVisible, mensaje, mostrarMensaje] = UsarMensajeExito();
 
     const navigate = useNavigate();
@@ -79,15 +97,15 @@ export const Pagar = () =>
                     <div className='pagar__principal__resumen__titulos'><span>Resumen</span></div>
                         <div className='row'>
                             <div className='col-md-6'><span>Subtotal:</span></div>
-                            <div className='col-md-6'><span>DOL 23.69</span></div>
+                            <div className='col-md-6'><span>$ {calcularTotal}</span></div>
                         </div>
                         <div className='row'>
                             <div className='col-md-6'><span>Total de envío:</span></div>
-                            <div className='col-md-6'><span>DOL 7.66</span></div>
+                            <div className='col-md-6'><span>$ {costoEnvio}</span></div>
                         </div>
                         <div className='pagar__principal__resumen__titulos_total row'>
                             <div className='col-md-6'><span>Total:</span></div>
-                            <div className='col-md-6'><span>DOL 31.35</span></div>
+                            <div className='col-md-6'><span>$ {totalOperacion}</span></div>
                         </div>
                         <div className='pagar__principal__resumen__pago'>
                             <button type='button' className='btn btn-danger btn-md pagar__principal__resumen__pago_boton' onClick={realizarPago}>Comprar</button>

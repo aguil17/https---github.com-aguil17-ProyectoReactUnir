@@ -2,18 +2,18 @@ import React from "react";
 import { useState } from "react";
 
 
-export const CestaDetail = ({ productImage, onToggle , onUpdateQuantity }) => {
+export const CestaDetail = ({ productImage, onToggle , ActualizarCantidad }) => {
     const [cantidad, setCantidad] = useState(1);
 
-    const handleCheckboxChange = (event) => {
+    const manejarCheckboxCambio = (event) => {
         const isChecked = event.target.checked;
         onToggle(productImage, isChecked);
     };
 
-    const handleQuantityChange = (event) => {
-        const newCantidad = parseInt(event.target.value);
-        setCantidad(newCantidad);
-        onUpdateQuantity(productImage, newCantidad);
+    const manejarCambioCantidad = (event) => {
+        const nuevaCantidad = parseInt(event.target.value);
+        setCantidad(nuevaCantidad);
+        ActualizarCantidad(productImage, nuevaCantidad);
     };
     return (
         <div className="cestaDetail row">
@@ -23,7 +23,7 @@ export const CestaDetail = ({ productImage, onToggle , onUpdateQuantity }) => {
                             className="cestaDetail__checkbox form-check-input" 
                             type="checkbox" 
                             checked={productImage.seleccionado} 
-                            onChange={handleCheckboxChange}
+                            onChange={manejarCheckboxCambio}
                         />
                 </div>
              </div>
@@ -43,7 +43,7 @@ export const CestaDetail = ({ productImage, onToggle , onUpdateQuantity }) => {
                             type="number" 
                             className="cestaDetail__cantidad" 
                             value={cantidad} 
-                            onChange={handleQuantityChange} 
+                            onChange={manejarCambioCantidad} 
                             min="1"/>
                         </p>
                     </div>

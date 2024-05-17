@@ -852,3 +852,9 @@ table
     display: flex;
     justify-content: end;
 }
+
+.devolverProducto__home
+{
+    margin: 5px;
+    width: 250px;
+}

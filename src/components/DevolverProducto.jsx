@@ -33,6 +33,14 @@ export const DevolverProducto = ({}) =>
                 mostrarMensaje();
             }
 
+        const navigate = useNavigate();
+
+        const retornarHome = () =>
+            {
+                navigate("/");
+            }
+    
+
         return (
             
             <div className="devolverProducto row">
@@ -44,7 +52,7 @@ export const DevolverProducto = ({}) =>
                     <h3 className="devolverProducto__descripcion">{product.descripcion}</h3>
                     <p>Precio: {product.moneda} {product.precio}</p>
                 </div>
-                <div className="col-md-4">
+                <div className="col-md-5">
                     <p>¿Por qué quieres devolver el producto?</p>
                     <p> 
                         <Dropdown className='d-inline' onSelect={handleSelect}>
@@ -63,6 +71,8 @@ export const DevolverProducto = ({}) =>
                         <textarea rows="5" cols="60"></textarea>
                     </div>
                     <button className="btn btn-primary" type="button" onClick={realizarDevolucion}>Devolver Producto</button>
+                    <button className="devolverProducto__home btn btn-success" type="button" onClick={retornarHome}>Retornar al Home</button>
+                    
                     <ModalExitoso
                                 isOpen={esVisible}
                                 message={mensaje}

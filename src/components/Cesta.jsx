@@ -55,10 +55,10 @@ export const Cesta = () => {
         ActualizarTotal(actualizarProducts);
     };
 
-    const manejarCambioCantidad = (product, newQuantity) => {
+    const ManejarCambioCantidad = (product, nuevaCantidad) => {
         const actualizarProducts = products.map(p => {
             if (p === product) {
-                return { ...p, cantidad: newQuantity };
+                return { ...p, cantidad: nuevaCantidad };
             }
             return p;
         });
@@ -90,7 +90,7 @@ export const Cesta = () => {
                         key={index}
                         productImage={product}
                         onToggle={ManejarCambioProduct}
-                        onUpdateQuantity={manejarCambioCantidad}
+                        ActualizarCantidad={ManejarCambioCantidad}
                     />
                 ))}
             </div>

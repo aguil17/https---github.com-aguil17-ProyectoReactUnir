@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const UsarMensajeExito = () => {
+const useMensajeExito = () => {
     const [esVisible, setEsVisible] = useState(false);
     const [mensaje, setMensaje] = useState('');
 
@@ -22,4 +22,4 @@ const UsarMensajeExito = () => {
     return [esVisible, mensaje, mostrarMensaje];
 };
 
-export default UsarMensajeExito;
+export default useMensajeExito;

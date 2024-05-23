@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { PagarLista } from './PagarLista';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useNavigate } from 'react-router-dom';
-import UsarMensajeExito from '../hooks/UsarMensajeExito';
+import useMensajeExito from '../hooks/useMensajeExito';
 import {ModalExitoso} from './ModalExitoso'
 
 export const Pagar = () =>
@@ -31,7 +31,7 @@ export const Pagar = () =>
     const totalOperacion = calcularTotal + costoEnvio;
 
 
-    const [esVisible, mensaje, mostrarMensaje] = UsarMensajeExito();
+    const [esVisible, mensaje, mostrarMensaje] = useMensajeExito();
 
     const navigate = useNavigate();
 

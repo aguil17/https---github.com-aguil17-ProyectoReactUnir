@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
 import camara01_normal from '../imagenes/productos/camaras/camara01_normal.webp';
 import { useParams } from "react-router-dom";
-import UsarMensajeExito from '../hooks/UsarMensajeExito';
+import useMensajeExito from '../hooks/useMensajeExito';
 import {ModalExitoso} from './ModalExitoso'
 
 export const DevolverProducto = ({}) =>
@@ -26,7 +26,7 @@ export const DevolverProducto = ({}) =>
           setSelectedOption(eventKey);
         };
 
-        const [esVisible, mensaje, mostrarMensaje] = UsarMensajeExito();
+        const [esVisible, mensaje, mostrarMensaje] = useMensajeExito();
 
         const realizarDevolucion = () =>
             {
